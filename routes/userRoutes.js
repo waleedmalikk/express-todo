@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const authMiddleware = require('../middlewares/authMiddleware');
+const validMiddleware = require("../middlewares/validMiddleware")
 
-// Register User API
-router.post('/register', userController.registerUser);
+router.post('/register', validMiddleware, userController.registerUser);
 
 module.exports = router;
